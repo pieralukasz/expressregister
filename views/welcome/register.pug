@@ -1,0 +1,25 @@
+extends layoutWelcome
+
+block content
+    form(action="register" method="POST").form__front
+        .form-nip
+            label(for="name") NIP
+            input(type="name" name="name" placeholder="Wprowadź NIP" class = "name")
+        .form-email
+            label(for="email") Adres e-mail
+            input(type="email" name="email" placeholder="Wprowadź Email" class = "email")
+        .form-password
+            label(for="password") Hasło
+            input(type="password" name="password" placeholder="Wprowadź hasło" class = "password")
+        .form-password-confirmed
+            label(for="password2") Potwierdzenie hasła
+            input(type="password" name="password2" placeholder="Wprowadź ponownie hasło" class = "password")
+        .form-login-btn
+            button(type="submit" class="button") Zarejestruj
+        .form-reminder
+            a(href="/users/login").register 
+                p Masz już konto? <br>Zaloguj się!
+            a(href="/users/forgot").forgot
+                p Zapomniałem hasła
+
+

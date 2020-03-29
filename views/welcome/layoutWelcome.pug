@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/css/index.css')
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap")
+  body
+    div.content
+      div(class="authentication" class= classname)
+        div.authentication__header
+        div.authentication__container.front
+          img(src="../images/logo.png", alt="logo")
+          div.front__panel
+            block content
+        div.authentication__footer

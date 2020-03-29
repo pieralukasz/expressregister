@@ -1,0 +1,37 @@
+
+.authentication--login {
+    display: grid;
+    grid-template-rows: 25% 320px auto;
+
+    img {
+        top: -40%;
+    }
+
+    .form__front {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+
+        .form-email {
+            display: flex;
+            flex-direction: column;
+        }
+  
+         .form-password {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+         }
+  
+         .form-reminder {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+  
+      }
+}
+
+  
+      
+  

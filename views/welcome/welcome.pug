@@ -1,15 +1,15 @@
-extends layout
+extends layoutWelcome
 
 block content
-    form(action="").form__front
+    form(action="/users/login" method="GET").form__front
         .form-email
             label(for="email") Adres e-mail
-            input(type="email" name="email" placeholder="test@example.com" class = "email")
+            input(type="email" name="email" placeholder="Wprowadź email" class = "email")
         .form-password
             label(for="password") Hasło
-            input(type="password" name="password" class = "password")
+            input(type="password" name="password" placeholder="Wprowadź hasło" class = "password")
         .form-login-btn
-            button(name="submitLogin" type="submit" class = "button") Zaloguj
+            button(name="submitLogin" type="submit" class="button") Zaloguj
         .form-reminder
             a(href="/users/register").register 
                 p Rejestracja

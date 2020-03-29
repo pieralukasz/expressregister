@@ -49,8 +49,135 @@ a {
   color: black;
 }
 
-body {
-  background-color: #EFF1F2;
+.authentication--login {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 25% 320px auto;
+      grid-template-rows: 25% 320px auto;
+}
+
+.authentication--login img {
+  top: -40%;
+}
+
+.authentication--login .form__front {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+.authentication--login .form__front .form-email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.authentication--login .form__front .form-password {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.authentication--login .form__front .form-reminder {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.authentication--registerx {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 25% 500px auto;
+      grid-template-rows: 25% 500px auto;
+}
+
+.authentication--registerx img {
+  top: -23%;
+}
+
+.authentication--registerx .form__front {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+.authentication--registerx .form__front .form-nip {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.authentication--registerx .form__front .form-email {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.authentication--registerx .form__front .form-password {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.authentication--registerx .form__front .form-password-confirmed {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.authentication--registerx .form__front .form-reminder {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .content {
@@ -58,39 +185,40 @@ body {
   display: grid;
   -ms-grid-columns: 1fr 420px 1fr;
       grid-template-columns: 1fr 420px 1fr;
-  -ms-grid-rows: 1fr auto auto;
-      grid-template-rows: 1fr auto auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  font-family: "Roboto", sans-serif;
   height: 100vh;
-  font-family: 'Roboto', sans-serif;
 }
 
-.login {
+.content .authentication {
   width: 100%;
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2 / 3;
   -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  grid-row: 1/ 3;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: 25% 350px auto;
-      grid-template-rows: 25% 350px auto;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  position: relative;
 }
 
-.login__header {
+.content .authentication__header {
   margin-top: 10%;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 10px;
 }
 
-.login__container {
-  background-color: white;
+.content .authentication__container {
+  position: relative;
+  background-color: #ffffff;
   border: 0.5px solid #d3d0d0;
   -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
           box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
@@ -105,57 +233,55 @@ body {
           justify-content: center;
 }
 
-.login__container label {
+.content .authentication__container img {
+  position: absolute;
+  border-radius: 50%;
+  border: 0.5px solid #d3d0d0;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  width: 40%;
+}
+
+.content .authentication__container .front__panel {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 80%;
+  width: 80%;
+}
+
+.content .authentication__footer {
+  height: 100%;
+}
+
+.content .authentication a {
+  color: gray;
+}
+
+.content .authentication a:hover {
+  color: black;
+}
+
+.content .authentication label {
   color: #666060;
   letter-spacing: 1px;
   font-size: .8rem;
   padding: 5px;
 }
 
-.login__container input {
+.content .authentication input {
+  padding-left: 15px;
+  border-radius: 5px;
   border: 1px solid #d3d0d0;
   background-color: rgba(137, 196, 235, 0.452);
   height: 30px;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 
-.front__panel {
-  max-height: 80%;
-  width: 80%;
-}
-
-.front__panel .form__front {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.front__panel .form__front .form-email {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.front__panel .form__front .form-password {
-  margin-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.front__panel .form__front .form-login-btn button {
+.content .authentication button {
+  border-radius: 5px;
   border: 1px solid #d3d0d0;
   background-color: #c2c2c2;
   font-weight: bold;
@@ -169,20 +295,9 @@ body {
   cursor: pointer;
 }
 
-.front__panel .form__front .form-reminder {
-  margin-top: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.front__panel .form__front .form-reminder a {
-  color: gray;
-}
-
-.front__panel .form__front .form-reminder a:hover {
-  color: black;
+body {
+  background-color: #EFF1F2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 /*# sourceMappingURL=index.css.map */
