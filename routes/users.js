@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
+
 // Login Page
 router.get('/login', (req, res) => {
   res.render('welcome/welcome', { title: 'Login', classname: 'authentication--login' });
@@ -27,7 +28,16 @@ router.post('/register', (req, res) => {
   }
 
   if (password !== password2) {
-    errors.push({ msg: 'Please fill in all fields' })
+    errors.push({ msg: 'Password is not correct' })
+  }
+
+  if (password.length < 6) {
+    errors.push({ msg: 'Password should be at leeast 6 char' })
+  }
+
+
+  if (errors.length > 0) {
+    res.json(errors)
   }
 
 

@@ -8,6 +8,9 @@
     height: 100vh;
 
 
+
+
+
     //authentication container for all
 
     .authentication {
@@ -96,13 +99,26 @@
             min-height: 40px;
             width: 100%;
             letter-spacing: 1px;
-            margin-top: 32px;
+            margin-top: 10px;
             font-size: 1.3rem;
             color: white;
             cursor: pointer;
           }
+
+          .u-alert {
+              cursor: default;
+            transition: ease 400ms;
+            font-size: .8rem;
+            padding: 1px 30px;
+            color: white;
+        }
+
+        .u-alert--active {
+            color: red;
+        }
         
-    
+          
+        
     }
 }
 

@@ -1,6 +1,6 @@
 .authentication--registerx {
     display: grid;
-    grid-template-rows: 25% 500px auto;
+    grid-template-rows: 22% 500px auto;
 
     img {
         top: -23%;
@@ -12,26 +12,28 @@
         flex-direction: column;
         flex-basis: 100%;
 
+        
+
         .form-nip {
-            margin-top: 10px;
+            // margin-top: 10px;
             display: flex;
             flex-direction: column;
         }
 
         .form-email {
-            margin-top: 10px;
+            // margin-top: 10px;
             display: flex;
             flex-direction: column;
         }
   
          .form-password {
-            margin-top: 10px;
+            // margin-top: 10px;
             display: flex;
             flex-direction: column;
          }
 
          .form-password-confirmed {
-            margin-top: 10px;
+            // margin-top: 10px;
             display: flex;
             flex-direction: column;
          }

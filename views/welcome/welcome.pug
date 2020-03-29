@@ -3,11 +3,13 @@ extends layoutWelcome
 block content
     form(action="/users/login" method="GET").form__front
         .form-email
-            label(for="email") Adres e-mail
+            label(for="email")(onselectstart="return false" onselect="return false" oncopy="return false") Adres e-mail
             input(type="email" name="email" placeholder="Wprowadź email" class = "email")
+            span.form-email-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") ""
         .form-password
-            label(for="password") Hasło
+            label(for="password")(onselectstart="return false" onselect="return false" oncopy="return false") Hasło
             input(type="password" name="password" placeholder="Wprowadź hasło" class = "password")
+            span.form-nip-password.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") ""
         .form-login-btn
             button(name="submitLogin" type="submit" class="button") Zaloguj
         .form-reminder
