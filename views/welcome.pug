@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    form(action="").form__front
+        .form-email
+            label(for="email") Adres e-mail
+            input(type="email" name="email" placeholder="test@example.com" class = "email")
+        .form-password
+            label(for="password") Hasło
+            input(type="password" name="password" class = "password")
+        .form-login-btn
+            button(name="submitLogin" type="submit" class = "button") Zaloguj
+        .form-reminder
+            a(href="/users/register").register 
+                p Rejestracja
+            a(href="/users/forgot").forgot
+                p Zapomniałem hasła
+
+
