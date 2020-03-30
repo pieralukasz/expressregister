@@ -17,5 +17,9 @@ block content
                 p Rejestracja
             a(href="/users/forgot").forgot
                 p Zapomniałem hasła
-
-
+        if (succes_msg != '')
+        .form-errors
+                p= succes_msg
+        if (error_msg != '')
+        .form-errors
+                p= error_msg

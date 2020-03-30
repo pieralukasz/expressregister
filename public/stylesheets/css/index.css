@@ -105,8 +105,8 @@ a {
 .authentication--registerx {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 22% 500px auto;
-      grid-template-rows: 22% 500px auto;
+  -ms-grid-rows: 22% 540px auto;
+      grid-template-rows: 22% 540px auto;
 }
 
 .authentication--registerx img {
@@ -173,6 +173,30 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.authentication--registerx .form__front .form-errors {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.authentication--registerx .form__front .form-errors .errors {
+  color: rgba(228, 86, 86, 0.705);
+  font-family: "Roboto", sans-serif;
+  font-size: .8rem;
+  padding: 2px;
 }
 
 .content {

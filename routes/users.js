@@ -1,11 +1,18 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const User = require('../models/User')
+const validator = require('validator');
+const bcrypt = require('bcryptjs')
+
+
+// User model 
 
 
 
 // Login Page
 router.get('/login', (req, res) => {
-  res.render('welcome/welcome', { title: 'Login', classname: 'authentication--login' });
+  let information = ""
+  res.render('welcome/welcome', { title: 'Login', classname: 'authentication--login', information });
 })
 
 
@@ -19,27 +26,57 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
 
-  const { name, email, password, password2 } = req.body;
-  let errors = [];
+  let { name, email, password, password2 } = req.body;
+  email = validator.normalizeEmail(email);
+  let errors = []
 
-  //check required fields
-  if (!name || !email || !password || !password2) {
-    errors.push({ msg: 'Please fill in all fields' })
+  if (!validator.isLength(name, 10, 11) || !validator.isNumeric(name)) {
+    errors.push({ msg: `The name ${name} is to short or is not a NIP` })
+  }
+
+  if (!validator.isEmail(email)) {
+    errors.push({ msg: 'You put the wrong email' })
+  }
+
+  if (!validator.isLength(password, 8, 32)) {
+    errors.push({ msg: 'The password is to short' })
   }
 
   if (password !== password2) {
-    errors.push({ msg: 'Password is not correct' })
+    errors.push({ msg: 'The password is not the same' })
   }
-
-  if (password.length < 6) {
-    errors.push({ msg: 'Password should be at leeast 6 char' })
-  }
-
 
   if (errors.length > 0) {
-    res.json(errors)
-  }
+    res.render('welcome/register', { title: 'Register', classname: 'authentication--registerx', errors });
+  } else {
+    // Validation passed
+    User.findOne({ email: email })
+      .then(user => {
+        if (user) {
+          errors.push({ msg: 'Email is already registered' })
+          res.render('welcome/register', { title: 'Register', classname: 'authentication--registerx', errors });
+        } else {
+          const newUser = new User({
+            NIP: name,
+            email,
+            password
+          });
 
+          bcrypt.genSalt(10, (err, salt) =>
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+              if (err) throw err;
+              // Set pssword to hased
+              newUser.password = hash;
+              newUser.save()
+                .then(user => {
+                  req.flash('succes_msg', "You can login now");
+                  res.redirect('/users/login')
+                })
+                .catch(err => console.log(err))
+            }))
+        }
+      })
+  }
 
 })
 

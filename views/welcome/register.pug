@@ -1,31 +1,35 @@
 extends layoutWelcome
 
 block content
-    form(action="register" method="POST" ).form__front
+ 
+    form(action="register" method="POST" class="form-register").form__front
         .form-nip
-            label(for="name")(onselectstart="return false" onselect="return false" oncopy="return false") NIP
+            label(for="name") NIP
             input(type="name" name="name" placeholder="Wprowadź NIP" class = "name")
-            span.form-nip-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") ""
+            span.form-nip-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") .
         .form-email
-            label(for="email")(onselectstart="return false" onselect="return false" oncopy="return false") Adres e-mail
+            label(for="email") Adres e-mail
             input(type="email" name="email" placeholder="Wprowadź Email" class = "email")
-            span.form-email-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") ""
+            span.form-email-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") .
         .form-password
-            label(for="password")(onselectstart="return false" onselect="return false" oncopy="return false") Hasło
+            label(for="password") Hasło
             input(type="password" name="password" placeholder="Wprowadź hasło" class = "password")
-            span.form-password-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") ""
+            span.form-password-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") .
         .form-password-confirmed
-            label(for="password2")(onselectstart="return false" onselect="return false" oncopy="return false") Potwierdzenie hasła
+            label(for="password2") Potwierdzenie hasła
             input(type="password" name="password2" placeholder="Wprowadź ponownie hasło" class = "password")
-            span.form-password-confirmed-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") ""
+            span.form-password-confirmed-error.u-alert(onselectstart="return false" onselect="return false" oncopy="return false") .
         .form-login-btn
             button(type="submit" class="button") Zarejestruj
         .form-reminder
             a(href="/users/login").register 
                 p Masz już konto? <br>Zaloguj się!
             a(href="/users/forgot").forgot
-                p Zapomniałem hasła
-
+                p Zapomniałem hasła 
+        if errors  
+            .form-errors
+                each n in errors
+                    p.errors= n.msg
 block scripts
     script(src="../javascripts/Register.js")
 

@@ -1,6 +1,6 @@
 .authentication--registerx {
     display: grid;
-    grid-template-rows: 22% 500px auto;
+    grid-template-rows: 22% 540px auto;
 
     img {
         top: -23%;
@@ -42,6 +42,21 @@
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
+        }
+
+        .form-errors {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .errors {
+                color: rgba(228, 86, 86, 0.705);
+                font-family: $roboto-font;
+                font-size: .8rem;
+                padding: 2px;
+            }
         }
   
       }

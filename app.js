@@ -1,29 +1,53 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
+const session = require('express-session')
+const logger = require('morgan');
 const mongoose = require('mongoose')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
 const db = require('./config/keys').MongoURI;
 
 
 
 // Connect to Mongo
-mongoose.connect(db, { useNewUrlParser: true })
+mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err))
 
 // Bodyparser
 app.use(express.urlencoded({ extended: false }));
 
+// Express Session
+
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}))
+
+// Connect flash
+
+app.use(flash())
+
+// Global Vars 
+
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash();
+  next();
+})
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+
+// whole use
 
 app.use(logger('dev'));
 app.use(express.json());
