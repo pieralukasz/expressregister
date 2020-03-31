@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-const { ensureAuthenticated, areYouLog } = require('../config/auth')
+const express = require('express');
+const router = express.Router();
+const { ensureAuthenticated, youAreNotLog } = require('../config/auth')
 
 /* GET home page. */
-router.get('/', areYouLog, (req, res, next) => {
+router.get('/', youAreNotLog, (req, res, next) => {
   res.render(`welcome/welcome`, { title: 'Logowanie', classname: 'authentication--login' });
 });
 

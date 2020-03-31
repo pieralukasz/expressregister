@@ -4,7 +4,7 @@ const User = require('../models/User')
 const validator = require('validator');
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
-
+const { areYouLog } = require('../config/auth')
 
 // User model 
 

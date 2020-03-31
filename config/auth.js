@@ -7,7 +7,7 @@ module.exports = {
         res.redirect('/users/login');
     },
 
-    areYouLog: function (req, res, next) {
+    youAreNotLog: function (req, res, next) {
         if (req.isAuthenticated()) {
             req.flash('success', 'You are already log in')
             res.redirect('/dashboard');
