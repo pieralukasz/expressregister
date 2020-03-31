@@ -2,7 +2,11 @@ extends layoutWelcome
 
 block content
 
-    form(action="/users/login" method="GET").form__front
+    
+    form(action="/users/login" method="POST").form__front
+        if error
+            .form-errors
+                p.errors #{ error }
         .form-email
             label(for="email") Adres e-mail
             input(type="email" name="email" placeholder="Wprowadź email" class = "email")

@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User')
 const validator = require('validator');
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
 
 
 // User model 
@@ -11,9 +12,20 @@ const bcrypt = require('bcryptjs')
 
 // Login Page
 router.get('/login', (req, res) => {
+  // console.log(req.flash('error'))
   res.render('welcome/welcome', { title: 'Login', classname: 'authentication--login' });
 })
 
+
+// Login Handle 
+
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/users/login',
+    failureFlash: true
+  })(req, res, next)
+})
 
 //Register Page
 
@@ -31,26 +43,26 @@ router.post('/register', (req, res) => {
 
   // Check NIP
 
-  if (!validator.isLength(name, 10, 11) || !validator.isNumeric(name)) {
-    errors.push({ msg: `The name ${name} is to short or is not a NIP` })
+  if (!validator.isLength(name, 9, 10) || !validator.isNumeric(name)) {
+    errors.push({ msg: `NIP ${name} jest za krótki lub nie jest liczbą` })
   }
 
   // Check Email
 
   if (!validator.isEmail(email)) {
-    errors.push({ msg: 'You put the wrong email' })
+    errors.push({ msg: 'Podałeś zły email!' })
   }
 
   // Check Password
 
   if (!validator.isLength(password, 8, 32)) {
-    errors.push({ msg: 'The password is to short' })
+    errors.push({ msg: 'Hasło jest za krótkie' })
   }
 
   // Check Second Password
 
   if (password !== password2) {
-    errors.push({ msg: 'The password is not the same' })
+    errors.push({ msg: 'Hasła różnią się od siebie' })
   }
 
 
@@ -99,5 +111,13 @@ router.post('/register', (req, res) => {
   }
 
 })
+
+// Logout Handle 
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash('success', 'You are logged out')
+  res.redirect('/users/login')
+});
 
 module.exports = router;
