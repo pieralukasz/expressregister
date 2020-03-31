@@ -27,6 +27,19 @@
             display: flex;
             justify-content: space-between;
         }
+
+        .form-information {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: $roboto-font;
+            font-size: 1rem;
+            padding: 2px;
+            color: rgb(43, 135, 189);
+
+        }
   
       }
 }

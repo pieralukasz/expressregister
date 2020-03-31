@@ -3,9 +3,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
-const session = require('express-session')
+const session = require('express-session');
+const expressMessages = require('express-messages');
 const logger = require('morgan');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -23,24 +24,28 @@ mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
 // Bodyparser
 app.use(express.urlencoded({ extended: false }));
 
-// Express Session
+// Express Session 
 
 app.use(session({
   secret: 'secret',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  // cookies: { secure: false }
 }))
 
 // Connect flash
 
-app.use(flash())
+app.use(flash());
 
-// Global Vars 
+
+// Global Vars
 
 app.use((req, res, next) => {
-  res.locals.success_msg = req.flash();
+  // res.locals.errorso = req.flash("erroro");
+  res.locals.successes = req.flash("success");
   next();
-})
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

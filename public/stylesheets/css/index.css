@@ -102,11 +102,32 @@ a {
           justify-content: space-between;
 }
 
+.authentication--login .form__front .form-information {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  padding: 2px;
+  color: #2b87bd;
+}
+
 .authentication--registerx {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 22% 540px auto;
-      grid-template-rows: 22% 540px auto;
+  -ms-grid-rows: 20% 540px auto;
+      grid-template-rows: 20% 540px auto;
 }
 
 .authentication--registerx img {
